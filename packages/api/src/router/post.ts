@@ -14,7 +14,7 @@ export const postRouter = {
     //   limit: 10,
     // });
     
-    console.log("heelo here is a response")
+    console.log("hello get all posts response")
     return [
       {
         id: "1",
@@ -23,6 +23,11 @@ export const postRouter = {
       },
       { 
         id: "2",
+        title: "heelo",
+        content: "heelo",
+      },
+      {
+        id: "3",
         title: "heelo",
         content: "heelo",
       }

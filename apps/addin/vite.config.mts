@@ -8,8 +8,6 @@ async function getHttpsOptions() {
   return { ca: httpsOptions.ca, key: httpsOptions.key, cert: httpsOptions.cert };
 }
 
-const __dirname = new URL(".", import.meta.url).pathname;
-
 // https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => ({
   plugins: [

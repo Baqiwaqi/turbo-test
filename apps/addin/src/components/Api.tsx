@@ -29,7 +29,7 @@ export function TRPCProvider(props: { children: React.ReactNode }) {
         httpBatchLink({
           transformer: superjson,
           // url: `${getBaseUrl()}/api/trpc`,
-          url: "http://localhost:8080/api/trpc",
+          url: "https://turbo-test-nextjs-five.vercel.app/api/trpc",
           headers() {
             const headers = new Map<string, string>();
             // headers.set("x-trpc-source");
