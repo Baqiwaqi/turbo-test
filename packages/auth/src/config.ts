@@ -26,8 +26,8 @@ declare module "next-auth" {
 
 const adapter = CosmosAdapter({
   clientOptions: {
-    endpoint: env.COSMOS_DB_ENDPOINT ?? "https://localhost:8081",
-    key: env.COSMOS_DB_KEY ?? ""
+    endpoint: process.env.COSMOS_DB_ENDPOINT ?? "https://localhost:8081",
+    key: process.env.COSMOS_DB_KEY ?? ""
   },
 })
 
@@ -47,9 +47,9 @@ export const authConfig = {
   providers: [
     AzureAd({
       // authorization: `https://login.microsoftonline.com/${process.env.AUTH_AD_TENANT_ID!}/oauth2/v2.0/authorize`,
-      clientId: env.AUTH_AD_CLIENT_ID,
-      clientSecret: env.AUTH_AD_CLIENT_SECRET,
-      tenantId: env.AUTH_AD_TENANT_ID,
+      clientId: process.env.AUTH_AD_CLIENT_ID,
+      clientSecret: process.env.AUTH_AD_CLIENT_SECRET,
+      tenantId: process.env.AUTH_AD_TENANT_ID,
     }),
   ],
   callbacks: {
