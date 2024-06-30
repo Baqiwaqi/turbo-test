@@ -26,8 +26,8 @@ declare module "next-auth" {
 
 const adapter = CosmosAdapter({
   clientOptions: {
-    endpoint: env.COSMOS_DB_ENDPOINT, 
-    key:env.COSMOS_DB_KEY 
+    endpoint: env.COSMOS_DB_ENDPOINT ?? "",
+    key: env.COSMOS_DB_KEY ?? "",
   },
 })
 
