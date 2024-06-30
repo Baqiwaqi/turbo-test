@@ -1,9 +1,9 @@
+
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 
 import { appRouter, createTRPCContext } from "@komit/api";
-// import { auth } from "@acme/auth";
+import { auth } from "@komit/auth";
 
-// export const runtime = "edge";
 
 /**
  * Configure basic CORS headers
@@ -24,14 +24,14 @@ export const OPTIONS = () => {
   return response;
 };
 
-
-const handler = async (req) => {
+const handler = auth(async (req) => {
   const response = await fetchRequestHandler({
     endpoint: "/api/trpc",
     router: appRouter,
     req,
     createContext: () =>
       createTRPCContext({
+        session: req.auth,
         headers: req.headers,
       }),
     onError({ error, path }) {
@@ -41,6 +41,6 @@ const handler = async (req) => {
 
   setCorsHeaders(response);
   return response;
-}
+});
 
 export { handler as GET, handler as POST };

@@ -5,15 +5,25 @@ import { z } from "zod";
 // import { CreatePostSchema, Post } from "@acme/db/schema";
 
 import { protectedProcedure, publicProcedure } from "../trpc";
+import {getDataBase} from "@komit/db/client";
+
+const db = getDataBase({
+  endpoint: process.env.COSMOS_DB_ENDPOINT,
+  key: process.env.COSMOS_DB_KEY,
+});
 
 export const postRouter = {
-  all: publicProcedure.query(({ ctx }) => {
+  all: publicProcedure.query(async ({ ctx }) => {
     // return ctx.db.select().from(schema.post).orderBy(desc(schema.post.id));
     // return ctx.db.query.Post.findMany({
     //   orderBy: desc(Post.id),
     //   limit: 10,
     // });
-    
+
+    // const res = await db.getContainer("addresses").items.readAll().fetchAll();
+
+    // return res.resources;
+
     console.log("hello get all posts response")
     return [
       {

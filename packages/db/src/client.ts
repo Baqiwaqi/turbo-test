@@ -57,4 +57,12 @@ class DB {
   }
 }
 
-export const db = new DB("ACI", client);
+interface CreateDatabase {
+  endpoint: string;
+  key: string;
+}
+
+export function getDataBase({ endpoint, key }: CreateDatabase) {
+  return new DB("ACI", new CosmosClient({ endpoint, key }));
+}
+

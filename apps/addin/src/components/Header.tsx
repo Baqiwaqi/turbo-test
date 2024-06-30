@@ -42,8 +42,8 @@ const Header = () => {
       {/* <span>{multiply(10, 7)}</span> */}
       <Button appName="addin">Click me</Button>
       <Code>npm install @repo/math</Code>
-      <pre>{JSON.stringify(mut, null, 2)}</pre>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(mut, null, 2)}</pre>
+      <pre>{JSON.stringify(data, null, 2)}</pre> */}
       {/* <Code>import {add(2, 3)} from "@repo/math/add";</Code> */}
     </section>
   );
